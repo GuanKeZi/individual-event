@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</body>
+
+</html>
+<script>
+    var lis = document.querySelectorAll('li')
+    function changeColor() {
+        for (var i = 0; i < lis.length; i++) {
+            if (i % 2 === 0) {
+                lis[i].style.backgroundColor = 'green'
+                lis[i].olcolor = 'green'
+            } else {
+                lis[i].style.backgroundColor = 'red'
+                lis[i].olcolor = 'red'
+            }
+        }
+    }
+    changeColor()
+
+    for (var j = 0; j < lis.length; j++) {
+        lis[j].onmouseover = function () {
+            this.style.backgroundColor = 'yellow'
+        }
+        lis[j].onmouseout = function () {
+            this.style.backgroundColor = this.olcolor
+        }
+    }
+
+</script>

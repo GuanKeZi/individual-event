@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .weibo {
+            width: 600px;
+            border: 1px solid #ccc;
+
+            margin: 100px auto;
+            padding: 10px;
+
+        }
+
+        .weibo-text {
+            width: 590px;
+            height: 140px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            resize: none;
+        }
+
+        .weibo-text:focus {
+            border-color: #f60;
+        }
+
+        .weibo-btn {
+            width: 80px;
+            height: 30px;
+            background-color: #f90;
+            color: #fff;
+            border: 0 none;
+            margin-top: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            outline: 0 none;
+        }
+
+        .weibo-list {
+            padding-top: 10px;
+        }
+
+        .weibo-list li {
+            font-size: 14px;
+            line-height: 30px;
+            border-bottom: 1px dotted #ccc;
+            overflow: hidden;
+        }
+
+        .weibo-list li p {
+            float: left;
+        }
+
+        .weibo-list li span {
+            float: right;
+            cursor: pointer;
+        }
+
+        .weibo-list li input {
+            height: 24px;
+            line-height: 24px;
+            width: 300px;
+            font-size: 14px;
+            border: 0 none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weibo">
+        <textarea class="weibo-text"></textarea>
+        <input class="weibo-btn" value="发布" type="button">
+        <ul class="weibo-list">
+            <li>
+                <p>快来收了这九款用上就停不下来的应用吧！！</p>
+                <span>删除</span>
+            </li>
+            <li>
+                <p>超级详细的云南大理自助游攻略</p>
+                <span>删除</span>
+            </li>
+            <li>
+                <p>外国最近很火的舞蹈，舒服简单自然，太棒了！</p>
+                <span>删除</span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    var weiboText = document.querySelector('.weibo-text');
+    var weiboBtn = document.querySelector('.weibo-btn');
+    var weiboList = document.querySelector('.weibo-list');
+    var add = weiboBtn.onclick = function () {
+        if (weiboText.value == '') {
+            return
+        }
+        var li = document.createElement('li')
+        li.innerHTML = '<p>' + weiboText.value + '</p><span>删除</span>'
+        weiboList.insertBefore(li, weiboList.children[0])
+        //从前面添加,把谁谁插到谁的前面。
+        //weiboList.appendChild(li)从后面添加。
+        weiboText.value = ''
+    }
+
+
+    // 删除功能  此功能删除不了新增的li
+    // var delBtn = document.querySelectorAll('.weibo-list span')
+    // for(var i=0;i<delBtn.length;i++){
+    //     delBtn[i].onclick = function(){
+    //         weiboList.removeChild(this.parentNode)
+    //     }
+    // }
+
+
+    // 动态生成的，最好使用事件委托方式来实现
+    weiboList.addEventListener('click', function (e) {
+        if (e.target.nodeName === 'SPAN') {
+            var li = e.target.parentNode
+            weiboList.removeChild(li)
+
+        }
+    })
+
+
+    // 添加一个键盘事件 点击回车键就可以实现发布
+    document.onkeydown = function (e) {
+        console.log(event.keyCode)
+        console.log(event.code)
+        console.log(event.key)
+        if (e.keyCode == 13) {
+            add()
+        }
+
+    }
+    document.onkeyup = function (e) {
+        //键盘弹起onkeyup
+        if (e.keyCode == 13) {
+        }
+    }
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+</body>
+</html>
+<script>
+    var ul = document.querySelector('ul')
+    var arr = []
+    for(var i = 0;i<10;i++){
+        arr.push('<li>1</li>')
+    }
+    var res = arr.join('')
+    ul.innerHTML = res
+    // ul.insertBefore(你要插入的属性,插入到谁的前面);
+</script>

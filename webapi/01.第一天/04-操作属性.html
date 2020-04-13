@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      img{
+          height: 500px;
+          width: 500px;
+          display: block;
+      }
+      button{
+          margin-right:20px;
+          margin-top:50px;
+          width: 100px;
+          height: 50px;
+      }
+    </style>
+</head>
+<body>
+    <img src="./images/1.jpg" alt="" id="img">
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <button>移除图片</button>
+    <script>
+        var img = document.getElementById('img');
+        var btn = document.getElementsByTagName('button');
+        var arr = ['./images/1.jpg','./images/2.jpg','./images/3.jpg','./images/4.jpg','./images/5.jpg']
+        for(var i=0;i<btn.length;i++){
+            btn[i].setAttribute('src',arr[i]) //setAttribute设置html标签属性
+            btn[i].onclick = function(){
+                var src = this.getAttribute("src")//getAttribute获取html标签属性
+                img.setAttribute("src",src)//setAttribute设置html标签属性
+            }
+        }
+      var finallyBtn = btn.length-1
+      finallyBtn.onclick = function(){
+          img.removeAttribute("src")//移除removeAttributehtml标签属性
+      }
+    </script>
+</body>
+</html>

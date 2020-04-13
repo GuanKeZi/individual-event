@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <button id='btn1'>移动0</button>
+    <button id='btn2'>移动500</button>
+    <button id='btn3'>移动800</button>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    var box = document.querySelector('.box');
+    var btn1 = document.querySelector('#btn1');
+    var btn2 = document.querySelector('#btn2');
+    var btn3 = document.querySelector('#btn3');
+
+
+
+    // var timerId = null;
+    function adimate(element, target) {
+        clearInterval(element.timerId);
+        element.timerId = setInterval(() => {
+            var current = element.offsetLeft;
+            if (current < target) {
+                current += 20
+            } else {
+                current -= 20
+            }
+            element.style.left = current + "px"
+            if (Math.abs(target - current) <= 20) {
+                element.style.left = target + 'px';
+                clearInterval(element.timerId);
+            }
+        }, 20);
+    }
+
+
+
+
+
+
+
+
+
+
+    btn1.onclick = function () {
+        adimate(box, 0)
+    }
+    btn2.onclick = function () {
+        adimate(box, 500)
+    }
+    btn3.onclick = function () {
+        adimate(box, 800)
+    }
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+        .big>img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="small">
+            <!--小层-->
+            <img src="images/small.png" width="350" alt="" />
+            <div class="mask"></div>
+            <!--遮挡层-->
+        </div>
+        <div class="big">
+            <!--大层-->
+            <img src="images/big.jpg" width="800" alt="" />
+            <!--大图-->
+        </div>
+    </div>
+</body>
+<script>
+    //第一步获取元素
+    var small = document.querySelector('.small')
+    var mask = document.querySelector('.mask')
+    var big = document.querySelector('.big')
+    var box = document.querySelector('.box')
+    var bigImg = document.querySelector('.big >img')
+
+
+    // 第二步
+    small.onmouseover = function () {
+        mask.style.display = 'block'
+        big.style.display = 'block'
+    }
+
+    small.onmouseout = function () {
+        mask.style.display = 'none'
+        big.style.display = 'none'
+    }
+    small.onmousemovec  = function (e) {
+        console.log(123)
+        var mx = e.pageX;
+        var my = e.pageY;
+        var x = mx - mask.offsetWidth / 2 - box.offsetLeft;
+        var y = my - mask.offsetHeight / 2 - box.offsetTop;
+
+
+        // 控制遮罩层在图片内部
+        x = x <= 0 ? 0 : x;
+        y = y <= 0 ? 0 : y;
+
+        var maxX = small.offsetWidth - mask.offsetWidth;
+        var maxY = small.offsetHeight - mask.offsetHeight;
+
+        // 判断是否超出最大距离
+        x = x >= maxX ? maxX : x;
+        y = y >= maxY ? maxY : y;
+
+        // 设置给黄色遮罩层
+        mask.style.top = y + 'px';
+        mask.style.left = x + 'px';
+
+        // var bigImgMaxX = bigImg.offsetWidth - big.offsetWidth;
+        // var bigImgMaxY = bigImg.offsetHeight - big.offsetHeight;
+        // // 8,2 根据公式求出大图的位移就行
+        // var bigImagX = bigImgMaxX * x / maxX;
+        // var bigImagY = bigImgMaxY * y / maxY;
+        // // 8.3 把计算出的结果，设置给大图即可 -此时大图是没有定位的，记得到css里面，定位
+        // bigImg.style.top = -bigImagY + 'px';
+        // bigImg.style.left = -bigImagX + 'px';
+    }
+</script>
+</html>

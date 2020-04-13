@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var arr = [1,2,3,4,5]
+
+    var res = arr.pop() 
+    console.log(arr)
+    console.log(res)
+    arr.unshift(res)
+    // unshift 从数组的前面插入   push从数组的后面插入
+    console.log(arr)
+    arr.push(arr.shift())
+    console.log(arr)
+
+    // pop() 删除数组最后一个 同时获取。
+    // shift()删除数组最前面一个 同时获取。
+    // unshift() 从数组前面添加进去。
+    // push() 从数组后面添加进去。
+
+
+</script>

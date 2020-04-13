@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementById('btn')
+
+
+    // btn.onclick = function () {
+    //     console.log(1)
+    // }
+    // btn.onclick = function () {
+    //     console.log(2)
+    // }
+    // btn.onclick = function () {
+    //     console.log(3)
+    // }
+
+
+
+    // 新学注册事件addEvenListener不支持ie8浏览器
+    // btn.addEventListener('click', function () {
+    //     console.log(1)
+    // })
+    // btn.addEventListener('click', function () {
+    //     console.log(2)
+    // })
+    // btn.addEventListener('click', function () {
+    //     console.log(3)
+    // })
+
+
+    //支持ie8到ie10事件attachEvent
+    btn.attachEvent('onclick', function () {
+        console.log(1)
+        console.log(this)
+    })
+
+</script>

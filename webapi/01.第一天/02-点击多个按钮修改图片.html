@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button{
+            margin: 0;
+            padding: 0;
+            margin-left: 20px;
+            width: 100px;
+            height: 50px;
+        }
+        img{
+            display: block;
+            padding: 0;
+            margin-bottom: 50px;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/1.jpg" id="img" alt="二哈">
+    <button>切换1</button>
+    <button>切换2</button>
+    <button>切换3</button>
+    <button>切换4</button>
+    <button>切换5</button>
+    <script>
+        // 使用js实现点击对应的按钮切换对应的按钮
+        var arr = ['./images/1.jpg','./images/2.jpg','./images/3.jpg','./images/4.jpg','./images/5.jpg',]
+        var btns = document.getElementsByTagName('button')
+        var img = document.getElementById('img')
+           for(var i = 0;i<btns.length;i++){
+               btns[i].index = i
+               btns[i].onclick = function(){
+                   img.src = arr[this.index]
+               }
+           }
+    </script>
+</body>
+</html>

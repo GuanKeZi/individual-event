@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            margin: 0 auto;
+            position: relative;
+            width: 500px;
+            height: 200px;
+            background: #000;
+        }
+        #title{
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            color: black;
+            width: 500px;
+            height: 50px;
+            cursor:move;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="title">title</div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementById('box')
+    var title = document.getElementById('title')
+    var isDragable = false;
+    var tempX;
+    var tempY;
+    title.onmousedown = function(e){
+       isDragable = true;
+        tempX =  e.pageX - box.offsetLeft;
+        tempY =  e.pageY - box.offsetTop;
+        // console.log(tempX,tempY)
+        // console.log(box.offsetLeft,box.offsetTop)
+    }
+
+    document.onmousemove = function(e){
+       var x = e.pageX
+       var y = e.pageY
+       if(isDragable == true){
+           box.style.left  = x - tempX -702 +'px'
+           box.style.top  = y - tempY -8 +'px'
+       }
+    }
+    document.onmouseup = function(){
+       isDragable = false;
+    }
+</script>

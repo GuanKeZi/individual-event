@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">解绑</button>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementById('btn')
+
+
+    btn.onclick = function () {
+        btn.onclick = null;
+        //把事件类型等于null,就可以解绑
+        console.log(123)
+    }
+
+
+    btn.addEventListener('click', function fn() {
+        // 解绑事件
+        btn.removeEventListener('click', fn);
+    })
+
+    btn.attachElent('onclick',function fn1(){
+        btn.detachEvent('click', fn1);
+    })
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">给div添加一个元素</button>
+    <div id="father"></div>
+</body>
+</html>
+<script>
+    btn.onclick = function(){
+        var div = document.createElement('div')
+        var father = document.getElementById('father')
+        div.innerText = '花花'
+        father.appendChild(div)
+        
+    }
+</script>

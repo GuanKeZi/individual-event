@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //注册新事件的三个方式
+    // addEventListener("事件类型",'处理程序'true||false)
+    // attachEvent("on+事件类型",'处理程序'true||false)
+
+
+    // 获取事件对象
+    // 就是把一件事也看成对象，无非就是很多的属性和方法要学习
+    // e.target - 获取事件目标
+    // e.stopPropagation() - 阻止冒泡
+    // e.clientX/e.clientY - 得到鼠标相对于浏览器的可视区域的坐标
+    // e.pageX/e.pageY  - 得到鼠标相对于整个页面的坐标
+    // e.preventDefault() - 阻止默认行为
+
+    // 阻止事件冒泡
+    // e.stopPropagation() - 阻止冒泡 
+
+
+    // 事件委托
+    // 把事件绑定在前一个父辈元素身上
+
+
+    //获取元素的偏移
+    //offsetParent  -  获取元素的一个偏移基准，这个基准是另一个元素，这个元素要求：如果有定位，就是离我最近的一个定位的元素，否则即使body或者html
+    //offsetLeft - 获取元素相对于他的offsetParent元素的水平偏移
+    //offsetTop - 获取元素相对于他的offsetParent元素的垂直偏移
+    
+    
+    
+    //解绑事件
+    //事件源.on+事件类型 = null
+    //事件源.removeEventListener(事件类型,函数名)
+    //事件源.detachEvent('on'+事件类型,函数名)
+</script>

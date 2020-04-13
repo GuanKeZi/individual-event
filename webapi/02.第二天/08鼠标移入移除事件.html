@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 300px;
+            background: #000;
+        }
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <img src="./images/1.jpg" alt="">
+</body>
+</html>
+<script>
+    // 鼠标移入移出事件
+    var divs = document.querySelector('div')
+    divs.onmouseover = function(){
+        document.querySelector('img').style.display = 'block'
+    }
+    divs.onmouseout = function(){
+        document.querySelector('img').style.display = 'none'
+    }
+
+
+    setInterval(() => {
+        if(document.querySelector('img').style.display == 'none'){
+            document.querySelector('img').style.display = 'block'
+        }else{
+            document.querySelector('img').style.display = 'none'
+        }
+    }, 1000);
+</script>

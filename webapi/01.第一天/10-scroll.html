@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll</title>
+    <style>
+        body {
+            height: 1200px;
+        }
+
+        #ant {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            text-align: center;
+            line-height: 100px;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+        <div id="ant"></div> 
+    <script>
+        window.onload = function () {
+            var odiv = document.getElementById("ant");
+            window.onscroll = function () {
+                odiv.innerHTML = document.documentElement.scrollTop;
+                // console.log(document.body.scrollTop)
+            }
+        }
+    </script>
+</body>
+
+</html>

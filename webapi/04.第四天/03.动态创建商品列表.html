@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .list {
+            width: 520px;
+            padding: 10px 0;
+            border: 1px solid #eee;
+            margin: 10px auto;
+        }
+
+        li {
+            float: left;
+            width: 160px;
+            height: 265px;
+            padding-bottom: 10px;
+            box-shadow: 4px 4px 8px 2px #ccc;
+            border-radius: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        li img {
+            width: 160px;
+        }
+
+        li div {
+            padding-left: 20px;
+        }
+
+        .price {
+            color: #ad3485;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .name {
+            color: #ccc;
+            padding: 5px 0 5px 20px;
+        }
+
+        .size>span {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div class="list clearfix">
+        <ul id="container">
+            <!-- 有单个商品的结构 -->
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    // 自己设置个数据
+    var data = [{ img: 'images/1.jpg', price: 4998, name: '荣耀 畅玩6X 3GB 32GB 全网通版', size: '5.1-5.5英寸' },
+    { img: 'images/5.jpg', price: 3688, name: '华为 Mate 9 Pro 6GB+128GB版', size: '5.1-5.5英寸' },
+    { img: 'images/1.jpg', price: 1998, name: 'Apple i X (A1903) 64GB', size: '5.1-5.5英寸' },
+    { img: 'images/5.jpg', price: 8998, name: '荣耀Play 全网通版 4GB+64GB', size: '5.1-5.5英寸' },
+    { img: 'images/1.jpg', price: 498, name: 'pple iPhone 6 32GB 金色', size: '4.8-5.2英寸' }]
+
+
+    var ul = document.getElementById('container')
+    var btn = document.getElementById('btn')
+
+    btn.onclick = function () {
+        for (var i = 0; i < data.length; i++) {
+            var li = document.createElement('li')
+            li.innerHTML = '<a href="javascript:;"><img src="' + data[i].img + '"alt=""></a><div class="price">' + data[i].price + '</div><div class="name">' + data[i].name + '</div><div class="size"><span>' + data[i].size + '</span></div>'
+            ul.appendChild(li)
+        }
+    }
+</script>

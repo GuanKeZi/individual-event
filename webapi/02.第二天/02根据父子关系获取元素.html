@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根据父子关系获取元素</title>
+</head>
+<body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+</body>
+</html>
+<script>
+    var uls = document.querySelector('ul')
+    var lis = document.querySelectorAll('li')
+    console.log(lis[0].parentNode)
+    console.log(uls.childNodes)
+    console.log(uls.children)
+</script>

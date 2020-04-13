@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+        <li>a1a</li>
+        <li>a2a</li>
+        <li>a3a</li>
+        <li>a4a</li>
+        <li>a5a</li>
+    </ul>
+    <button id="btn">添加li</button>
+</body>
+</html>
+<script>
+    // 实现事件委托
+    var ul = document.getElementById('ul')
+    var btn = document.getElementById('btn')
+    ul.onclick = function(e){
+        var arr = []
+        for(var i = 0;i<ul.children.length;i++){
+            arr[i] = ul.children[i]
+        }
+        if(arr.indexOf(e.target)!==-1){
+            // console.log("你点击的是ul的子元素")
+        }
+        console.log(e)
+        console.log(e.target)
+    }
+
+
+    btn.onclick = function(){
+        ul.innerHTML+='<li>我是新增的li1</li><li>我是新增的li2</li><li>我是新增的li3</li>'
+    }
+</script>
